@@ -9,7 +9,7 @@ path.SOURCE = 'data'
 file.list = file.path(path.SOURCE,dir(path.SOURCE, pattern='gpx$'))
 
 # select a file
-filename = file.list[3]
+filename = file.list[4]
 d = readGPX(filename)
 
 # get the tracks information
@@ -62,5 +62,6 @@ ggplot(df, aes(x/1e3,y/1e3)) +
     geom_point() +
     geom_point(data = df.stops, col='white', size = 4) + 
     geom_point(data = df.stops, col='red', size = 3, alpha=0.4) + 
-    xlab('x (km)') + ylab('y (km)') 
+    xlab('x (km)') + ylab('y (km)') +
+    ggtitle('Traffic Lights')
 ggsave('Map with Stops.png', width=6,height=4)
